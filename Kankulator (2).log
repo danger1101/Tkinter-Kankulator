@@ -1,0 +1,110 @@
+# Kalkulyator dasturlash dasturi
+from tkinter import *
+
+oyna = Tk()
+oyna.title("Kichik kalkulyator")
+oyna2 = Entry(oyna, width=35, borderwidth=5)
+oyna2.grid(row=0, column=0, columnspan=3, padx=10, pady=10)
+
+
+def cal(raqam):
+    son = oyna2.get()
+    oyna2.delete(0, END)
+    oyna2.insert(0, str(son) + str(raqam))
+
+
+def plyus():
+    raqam_1 = oyna2.get()
+    global kun
+    global kun2
+    kun2 = "addition"
+
+    kun = int(raqam_1)
+    oyna2.delete(0, END)
+
+
+def barobar():
+    raqam_2 = oyna2.get()
+    oyna2.delete(0, END)
+    if kun2 == "addition":
+        oyna2.insert(0, kun + int(raqam_2))
+    if kun2 == "subtraction":
+        oyna2.insert(0, kun - int(raqam_2))
+    if kun2 == "kopaytirish":
+        oyna2.insert(0, kun * int(raqam_2))
+    if kun2 == "bolish":
+        oyna2.insert(0, kun / int(raqam_2))
+
+
+
+def del1():
+    oyna2.delete(0, END)
+
+
+def ayirish1():
+    raqam_1 = oyna2.get()
+    global kun
+    global kun2
+    kun2 = "subtraction"
+
+    kun = int(raqam_1)
+    oyna2.delete(0, END)
+
+def kopaytirish():
+        raqam_1 = oyna2.get()
+        global kun
+        global kun2
+        kun2 = "kopaytirish"
+
+        kun = int(raqam_1)
+        oyna2.delete(0, END)
+
+def bolish():
+        raqam_1 = oyna2.get()
+        global kun
+        global kun2
+        kun2 = "bolish"
+
+        kun = int(raqam_1)
+        oyna2.delete(0, END)
+
+
+
+button1 = Button(oyna, text=1, padx=40, pady=20, command=lambda: cal(1),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button2 = Button(oyna, text=2, padx=40, pady=20, command=lambda: cal(2),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button3 = Button(oyna, text=3, padx=40, pady=20, command=lambda: cal(3),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button4 = Button(oyna, text=4, padx=40, pady=20, command=lambda: cal(4),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button5 = Button(oyna, text=5, padx=40, pady=20, command=lambda: cal(5),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button6 = Button(oyna, text=6, padx=40, pady=20, command=lambda: cal(6),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button7 = Button(oyna, text=7, padx=40, pady=20, command=lambda: cal(7),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button8 = Button(oyna, text=8, padx=40, pady=20, command=lambda: cal(8),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button9 = Button(oyna, text=9, padx=40, pady=20, command=lambda: cal(9),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button0 = Button(oyna, text=0, padx=40, pady=20, command=lambda: cal(0),activeforeground="red",bg="blue",activebackground="yellow",fg="white")
+button_qoshish = Button(oyna, text="+", padx=40, pady=20, command=plyus,activeforeground="yellow",bg="red",activebackground="blue",fg="white")
+button_barobar = Button(oyna, text="=", padx=40, pady=20, command=barobar,activeforeground="green",bg="red",activebackground="blue",fg="white")
+button_clear = Button(oyna, text="O'chirish", padx=20, pady=20, command=del1,activeforeground="green",bg="red",activebackground="blue",fg="white")
+button_ayirish = Button(oyna, text="-", padx=40, pady=20, command=ayirish1,activeforeground="yellow",bg="red",activebackground="blue",fg="white")
+button_kopaytirish = Button(oyna,text = "*", padx =40,pady = 20, command=kopaytirish,activeforeground="yellow",bg="red",activebackground="blue",fg="white")
+button_bolish = Button(oyna,text = "/", padx =40,pady = 20, command=bolish,activeforeground="yellow",bg="red",activebackground="blue",fg="white")
+button1.grid(row=3, column=0)
+button2.grid(row=3, column=1)
+button3.grid(row=3, column=2)
+
+button4.grid(row=2, column=0)
+button5.grid(row=2, column=1)
+button6.grid(row=2, column=2)
+
+button7.grid(row=1, column=0)
+button8.grid(row=1, column=1)
+button9.grid(row=1, column=2)
+
+
+button0.grid(row=4, column=1)
+button_qoshish.grid(row=4, column=2)
+button_barobar.grid(row=5, column=1)
+button_clear.grid(row=4, column=0)
+button_ayirish.grid(row=5, column=0)
+button_kopaytirish.grid(row = 5, column = 2)
+button_bolish.grid(row = 6, column = 0)
+oyna.mainloop()
+
